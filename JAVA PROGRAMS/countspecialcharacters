@@ -1,0 +1,13 @@
+public class main
+ {
+    public static void main(String[] args)
+ {
+        String line = " Yogendr@#/-!";
+        int specialCharCount = 0;
+        for (int i = 0; i < line.length(); i++) {
+            char ch = line.charAt(i);
+            if (!Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch)) {
+                System.out.println(ch);
+                specialCharCount++;
+            }
+        }
