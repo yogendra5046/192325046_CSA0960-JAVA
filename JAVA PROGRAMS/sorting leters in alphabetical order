@@ -1,0 +1,20 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ReverseAlphabeticalOrder {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the word: ");
+        String word = scanner.nextLine();
+        char[] charArray = word.toCharArray();
+        Arrays.sort(charArray);
+        char[] reverseCharArray = new char[charArray.length];
+        for (int i = 0; i < charArray.length; i++) {
+            reverseCharArray[i] = charArray[charArray.length - 1 - i];
+        }
+        System.out.print("Alphabetical Order in Reverse: ");
+        for (char c : reverseCharArray) {
+            System.out.print(c + " ");
+        }
+    }
+}
