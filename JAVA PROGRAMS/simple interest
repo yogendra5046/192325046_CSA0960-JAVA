@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class intrest{
+    public static void main(String[] args){
+        Scanner a=new Scanner(System.in);
+        System.out.print("enter the amount");
+        int amount=a.nextInt();
+         Scanner b=new Scanner(System.in);
+        System.out.print("enter the rate of intrest ");
+        int rate=b.nextInt();
+         Scanner c=new Scanner(System.in);
+        System.out.print("enter the period in years");
+        int years=c.nextInt();
+        int res=amount*rate*years;
+         float res2=res/100;
+        System.out.print(res2);
+    }
+}
