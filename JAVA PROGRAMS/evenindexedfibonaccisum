@@ -1,0 +1,22 @@
+public class EvenIndexedFibonacciSum {
+    public static void main(String[] args) {
+        int n = 4; 
+        int result = evenIndexedFibonacciSum(n);
+        System.out.println("Sum of numbers at even indexes up to the " + (2*n) + "th term: " + result);
+    }
+    public static int evenIndexedFibonacciSum(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int a = 0, b = 1, sum = 0;
+        for (int i = 0; i <= 2 * n; i++) {
+            if (i % 2 == 0) {
+                sum += a;
+            }
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+        return sum;
+    }
+}
