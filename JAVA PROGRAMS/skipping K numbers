@@ -1,0 +1,15 @@
+public class PrintNumbersWithSkip {
+    public static void main(String[] args) {
+        int M = 50;
+        int N = 100;
+        int K = 7;
+        System.out.println("Numbers by skipping");
+        printNumbersWithSkip(M, N, K);
+    }
+    public static void printNumbersWithSkip(int M, int N, int K) {
+        for (int i = M; i <= N; i += K + 1) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
