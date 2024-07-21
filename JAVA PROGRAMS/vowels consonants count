@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+        String word = "Engineering";
+        word = word.toLowerCase();
+        String vowels = "", consonants = "";
+
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowels += ch + " ";
+            } else if ((ch >= 'a' && ch <= 'z')) {
+                consonants += ch + " ";
+            }
+        }
+
+        System.out.println("Consonants: " + consonants);
+        System.out.println("Vowels: " + vowels);
+    }
+}
