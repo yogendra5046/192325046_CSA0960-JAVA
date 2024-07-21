@@ -1,0 +1,11 @@
+package galoons;
+import java.util.Scanner;
+public class convt {
+	public static void main(String[] args) {
+		Scanner a= new Scanner(System.in);
+		System.out.print("enter the galoons");
+	double gallons=a.nextDouble();
+	double res=3.785*gallons;
+	System.out.println(gallons+" gallons equals "+res+" liters");
+	}
+	}
