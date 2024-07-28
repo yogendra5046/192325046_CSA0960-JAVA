@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=block
+comment1.params=maxturnspeed
+comment1.target=block(int)
+comment2.params=
+comment2.target=void\ act()
+numComments=3
