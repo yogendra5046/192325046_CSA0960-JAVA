@@ -1,0 +1,17 @@
+package rockpaper;
+import java.util.Random;
+public class rockpaperscissor {
+	public static void main(String args[]) {
+	Random num=new Random();
+	int gen=num.nextInt(3);
+ if (gen==0) {
+	 System.out.print("rock");
+ }
+ if (gen==1) {
+	 System.out.print("paper");
+}
+ if (gen==2) {
+	 System.out.print("scissor");
+ }
+}
+}
