@@ -1,0 +1,15 @@
+public class DoubleCastingExample {
+    public static void main(String[] args) {
+        // Define a double variable with a double literal
+        double complexNumber = 45.75;
+
+        // Define an int variable
+        int simpleNumber = 34;
+
+        // Implicitly cast int to double
+        complexNumber = simpleNumber;
+
+        // Print the result
+        System.out.println("Complex number: " + complexNumber);
+    }
+}
