@@ -1,0 +1,11 @@
+
+public class strconcat {
+	    public static void main(String[] args) {
+	        String string1 = "Hello, ";
+	        String string2 = "world!";
+	        String concatenatedString = string1 + string2;
+	        System.out.println(concatenatedString);
+	    }
+	}
+
+
