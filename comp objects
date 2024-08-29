@@ -1,0 +1,15 @@
+
+public class qwer {
+	    public static void main(String[] args) {
+	 	        person p1 = new person(123, "Ariel");
+	        person p2 = new person(456, "Joseph");
+	        if (p1.getId() == p2.getId()) {
+	            System.out.println(p1.getName() + " has the same ID as " + p2.getName());
+	        } else {
+	            System.out.println(p1.getName() + " does NOT have the same ID as " + p2.getName());
+	        }
+	    }
+	}
+
+
+
