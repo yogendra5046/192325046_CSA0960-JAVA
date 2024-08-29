@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+public class Arraylist {
+public static void main(String[] args) {
+		        ArrayList<String> students = new ArrayList<>();
+		        students.add("Amy");
+		        students.add("Bob");
+		        students.add("Cindy");
+		        students.add("David");
+		        students.add(0,"nick");
+		        students.add(1,"mike");
+		        students.remove(3);
+		        System.out.println("Students in the list:");
+		        for (String student : students) {
+		            System.out.println(student);
+		        }
+		        System.out.println("Total number of students: " + students.size());
+		    }
+		}
