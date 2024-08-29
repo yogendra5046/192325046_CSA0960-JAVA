@@ -1,0 +1,52 @@
+public class Coin {
+	private int denomination;
+	public Coin (int denomination) {
+		this.denomination=denomination;
+	}
+	public int getDenomination() {
+		return denomination;
+	}
+
+}
+import java.util.HashSet;
+public class CoinTestDriver {
+public static void main(String args[]) {
+	HashSet<Coin>bagofcoins= new HashSet<Coin>();
+	Coin c1=new Coin(1);
+	Coin c2=new Coin(2);
+	Coin c3=new Coin(5);
+	Coin c4=new Coin(10);
+	Coin c5=new Coin(50);
+	Coin c6=new Coin(100);
+	bagofcoins.add(c1);
+	bagofcoins.add(c2);
+	bagofcoins.add(c3);
+	bagofcoins.add(c4);
+	bagofcoins.add(c5);
+	bagofcoins.add(c6);
+	findcoin(bagofcoins,c1);
+	findcoin(bagofcoins,c5);
+	displaybagdetails(bagofcoins);
+	bagofcoins.clear();
+	displaybagdetails(bagofcoins);
+	
+}
+static void findcoin(HashSet<Coin>bagofcoins,Coin coin) {
+	if(bagofcoins.contains(coin)) {
+		System.out.println("there is a coin "+coin.getDenomination()+" in the bag");
+	}
+	else {
+		System.out.print("no coin found");
+}
+	
+}
+static void displaybagdetails(HashSet<Coin>bagofcoins) {
+	if(bagofcoins.isEmpty()) {
+		System.out.println("there are no coins in the bag  ");
+	}
+	else {
+		System.out.println("thera are"+bagofcoins.size()+"coins in the bag");
+	}
+}
+}
+
