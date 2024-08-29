@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class scannerclass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner a=new Scanner(System.in);
+		int sum=0;
+		System.out.print("enter a number (-1 to quit)");
+		int num=a.nextInt();
+		while(num!=-1) {
+			sum=sum+num;
+			System.out.print("enter a number (-1 to exit)");
+			   num=a.nextInt();
+		}	
+   System.out.print("the sum is"+sum);
+	}
+
+}
