@@ -1,0 +1,44 @@
+public class Cell {
+    private String value;
+
+    // Setter method to set the value
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    // Getter method to get the value
+    public String getValue() {
+        return value;
+    }
+
+    // Main method to test the Cell class
+    public static void main(String[] args) {
+        Cell cell = new Cell();
+        cell.setValue("two");// Use standard double quotes
+        System.out.println(cell.getValue());
+    }
+
+}
+
+ublic class CellDriver {
+    // Private field to hold the cell's value
+    private String value;
+
+    // Setter method to set the value
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    // Getter method to get the value
+    public String getValue() {
+        return value;
+    }
+
+    // Main method to test the Cell class
+    public static void main(String[] args) {
+        Cell cell = new Cell();
+        cell.setValue("One"); // Use standard double quotes
+        System.out.println(cell.getValue());
+    }
+
+}
