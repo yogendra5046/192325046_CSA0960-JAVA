@@ -1,0 +1,18 @@
+package assertionsex;
+public class Cards {
+	public static void main(String[] args) {
+		String suit = "Card";
+		switch (suit) {
+		case "Clubs" : System.out.println("Clubs");
+		break;
+		case "Diamonds" : System.out.println("Diamonds");
+		break;
+		case "Hearts" : System.out.println("Hearts");
+		break;
+		case "Spades" : System.out.println("Spades");
+		break;
+		default : assert false : "Unknown playing card suit";
+		break;
+		}
+		}
+}
