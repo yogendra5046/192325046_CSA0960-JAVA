@@ -1,0 +1,56 @@
+
+public interface Item {
+ String getName();
+ double getPrice();
+}
+public class Cookie implements Item {
+    private String name;
+    private double price;
+    private String type;
+
+    // Constructor
+    public Cookie(String name, double price, String type) {
+        this.name = name;
+        this.price = price;
+        this.type = type;
+    }
+
+    // Implementing methods from the Item interface
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+
+    // Additional method specific to Cookie class
+    public String getType() {
+        return type;
+    }
+
+    // Displaying the cookie information
+    public void displayCookieInfo() {
+        System.out.println("Cookie Name: " + getName());
+        System.out.println("Price: $" + getPrice());
+        System.out.println("Type: " + getType());
+        System.out.println();
+    }
+}
+
+// BakeryDriver.java
+public class BakeryDriver {
+    public static void main(String[] args) {
+        // Creating Cookie objects
+        Cookie chocolateChip = new Cookie("Chocolate Chip", 1.99, "Crunchy");
+        Cookie oatmealRaisin = new Cookie("Oatmeal Raisin", 2.49, "Soft");
+        Cookie peanutButter = new Cookie("Peanut Butter", 2.99, "Chewy");
+
+        // Testing Cookie methods by displaying values to the console
+        chocolateChip.displayCookieInfo();
+        oatmealRaisin.displayCookieInfo();
+        peanutButter.displayCookieInfo();
+    }
+}
