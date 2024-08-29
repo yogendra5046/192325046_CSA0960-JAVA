@@ -1,0 +1,27 @@
+
+public class person {
+    private String name;
+    private int age;
+ public person(String initialName, int initialAge) {
+        name = initialName;
+        age = initialAge;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int newAge) {
+        age = newAge;
+    }
+    public static void main(String[] args) {
+        person yogi = new person("yogi", 30);
+        System.out.println("Name: " + yogi.getName());
+        System.out.println("Age: " + yogi.getAge());
+
+        yogi.setAge(31);
+        System.out.println("Updated age: " + yogi.getAge());
+    }
+}
+
