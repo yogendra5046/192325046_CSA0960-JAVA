@@ -1,0 +1,113 @@
+
+class Vehicle {
+    // Static variables
+    public static String MAKE = "Augur";
+    public static int numVehicles = 0;
+
+    // Instance variables
+    private String chassisNo;
+    private String model;
+
+    // Constructor
+    public Vehicle(String model) {
+        Vehicle.numVehicles++; // Increment the number of vehicles
+        this.chassisNo = "ch" + Vehicle.numVehicles; // Set chassis number
+        this.model = model; // Set model
+        System.out.println("Vehicle manufactured");
+    }
+
+    // Getter for chassisNo
+    public String getChassisNo() {
+        return chassisNo;
+    }
+
+    // Setter for chassisNo
+    public void setChassisNo(String chassisNo) {
+        this.chassisNo = chassisNo;
+    }
+
+    // Getter for model
+    public String getModel() {
+        return model;
+    }
+
+    // Setter for model
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    // Static setter for MAKE
+    public void setMake(String make) {
+        Vehicle.MAKE = make;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Vehicle manufactured by: " + Vehicle.MAKE + "\n" +
+               "Model type is: " + this.model + "\n" +
+               "Chassis number is: " + this.chassisNo + "\n" +
+               "Engine make is: " + Engine.getMake() + "\n" +
+               "Engine capacity is: " + Engine.getCapacity() + "cc";
+    }
+
+    // Nested static class Engine
+    public static class Engine extends Vehicle {
+        // Static final variables
+        private static final String MAKE = "Predicter";
+        private static final int CAPACITY = 1600;
+
+        // Constructor
+        public Engine(String model) {
+            super(model);
+        }
+
+        // Getters for the static final variables
+        public static String getMake() {
+            return MAKE;
+        }
+
+        public static int getCapacity() {
+            return CAPACITY;
+        }
+    }
+}
+
+public class TestVehicle {
+    public static void main(String[] args) {
+        // Display manufacturer and number of vehicles manufactured
+        System.out.println("Manufacturer: " + Vehicle.MAKE);
+        System.out.println("Number of vehicles manufactured: " + Vehicle.numVehicles);
+
+        // Create first vehicle instance
+        Vehicle vehicle1 = new Vehicle("Vision");
+
+        // Display instance variables for the first vehicle
+        System.out.println("The vehicle is manufactured by: " + Vehicle.MAKE);
+        System.out.println("The model type is: " + vehicle1.getModel());
+        System.out.println("The chassis number is " + vehicle1.getChassisNo());
+
+        // Create second vehicle instance
+        Vehicle vehicle2 = new Vehicle("Edict");
+
+        // Modify the static MAKE variable using vehicle2
+        vehicle2.setMake("Seer");
+
+        // Display instance variables for both vehicles using the toString method
+        System.out.println(vehicle1.toString());
+        System.out.println(vehicle2.toString());
+
+        // Create an Engine object
+        Vehicle.Engine vehicle3 = new Vehicle.Engine("Fortune");
+
+        // Display the details of the engine object
+        System.out.println(vehicle3.toString());
+
+        // Display total number of vehicles manufactured
+        System.out.println("Number of vehicles manufactured: " + Vehicle.numVehicles);
+
+        // Display specific output for vehicle3
+        System.out.println("Vehicle number " + vehicle3.getChassisNo() + " is a " + vehicle3.getModel() +
+                           " model and has an engine capacity of " + Vehicle.Engine.getCapacity() + "cc");
+    }
+}
