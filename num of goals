@@ -1,0 +1,14 @@
+public class goal {
+	public static void main(String[] args) {
+		int goals=5;
+		/*String s;
+		if (goals==1) {
+			s="goal";
+		}else {
+			//s="goals";
+		}
+		//System.out.print("i scored "+goals+" "+s);*/
+		System.out.print("i scored "+goals+" "+(goals==1?"goal":"goals"));
+	}
+
+}
