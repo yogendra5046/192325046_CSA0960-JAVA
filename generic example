@@ -1,0 +1,77 @@
+package genericsexample;
+
+public class Cell<T, T2> {
+    private T t;     // First generic field
+    private T2 k;    // Second generic field
+
+    // Setter method to set both values
+    public void setValue(T celldata, T2 i) {
+        t = celldata;
+        k = i;
+    }
+
+    // Getter method for the first value
+    public T getT1Value() {
+        return t;
+    }
+
+    // Getter method for the second value
+    public T2 getT2Value() {
+        return k;
+    }
+
+    // Overriding toString to display the types of T and T2
+    @Override
+    public String toString() {
+        return "Cell types are: Type1: " + t.getClass().getName() + " and Type2: " + k.getClass().getName();
+    }
+}
+public class CellDriver {
+    public static void main(String[] args) {
+        // Creating a Cell with Integer and String types
+        Cell<Integer, String> mixCell = new Cell<>();
+        
+        // Creating a Cell with two Integer types
+        Cell<Integer, Integer> integerCell = new Cell<>();
+
+        // Setting values in the mixCell
+        mixCell.setValue(1, "4");
+
+        // Setting values in the integerCell
+        integerCell.setValue(45, 60);
+
+        // Retrieving values from mixCell
+        int mcType1 = mixCell.getT1Value();
+        String mcType2 = mixCell.getT2Value();
+
+        // Retrieving values from integerCell
+        int icType1 = integerCell.getT1Value();
+        int icType2 = integerCell.getT2Value();
+
+        // Printing the Cell objects using toString method
+        System.out.println(mixCell);
+        System.out.println(integerCell);
+
+        // Printing the individual values
+        System.out.println("The numerical value is: " + mcType1 + ". The text value is: " + mcType2);
+        System.out.println("The first numerical value is: " + icType1 + " and the second is : " + icType2);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Example with String and Integer
+        Cell<String, Integer> cell1 = new Cell<>();
+        cell1.setValue("Hello", 100);
+        System.out.println("T1 Value: " + cell1.getT1Value());
+        System.out.println("T2 Value: " + cell1.getT2Value());
+        System.out.println(cell1);
+
+        // Example with Double and Boolean
+        Cell<Double, Boolean> cell2 = new Cell<>();
+        cell2.setValue(99.99, true);
+        System.out.println("T1 Value: " + cell2.getT1Value());
+        System.out.println("T2 Value: " + cell2.getT2Value());
+        System.out.println(cell2);
+    }
+}
