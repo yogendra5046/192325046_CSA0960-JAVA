@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class movie {
+	public static void main(String[] args) {
+		Scanner a=new Scanner(System.in);
+		System.out.print("enter the ticket price");
+		int price=a.nextInt();
+		System.out.print("enter the rating");
+		int rating=a.nextInt();
+		System.out.print("enter your age");
+		int age=a.nextInt();
+		int fare;
+		if (age<11) {
+			fare=3;
+		 if(age>11&&age<65) {
+			fare=5;
+		 }
+		}else {
+			fare=3;
+		}
+		System.out.println("fare is"+fare);
+if (price>=12&&rating==5) {
+	System.out.println("im intrested in watching movie ");
+}else {
+	System.out.println(" im not intrested in watching movie");
+}
+	}
+
+}
