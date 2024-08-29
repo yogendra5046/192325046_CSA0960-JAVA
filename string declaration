@@ -1,0 +1,11 @@
+
+public class declare {
+	public static void main(String[] args) {
+	char[] charArray = {'a', 'b', 'c'};
+	String myString = new String(charArray);
+	String myString1 = new String("abc");
+	String myString2 = "abc";
+	System.out.print(myString+"\n"+myString1+"\n"+myString2);
+
+}
+}
