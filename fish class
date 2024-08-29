@@ -1,0 +1,58 @@
+public class Fish {
+    // Instance variables
+    private String typeOfFish;
+    private int friendliness;
+
+    // Constructor with no arguments
+    public Fish() {
+        this.typeOfFish = "Unknown";
+        this.friendliness = 3;
+    }
+
+    // Constructor with arguments
+    public Fish(String t, int f) {
+        this.typeOfFish = t;
+        this.friendliness = f;
+    }
+
+    // Method to get the friendliness level
+    public int getFriendliness() {
+        return friendliness;
+    }
+
+    // Method to get the type of fish
+    public String getTypeOfFish() {
+        return typeOfFish;
+    }
+
+    // Method to compare multiple fish and return the nicest one
+    public static Fish nicestFish(Fish... fishArray) {
+        if (fishArray.length == 0) {
+            return null; // Return null if no fish are provided
+        }
+        Fish temp = fishArray[0];
+        for (Fish fish : fishArray) {
+            if (fish.getFriendliness() > temp.getFriendliness()) {
+                temp = fish;
+            }
+        }
+        return temp;
+    }
+
+    public static void main(String[] args) {
+        // Initializing fish instances
+        Fish fish1 = new Fish("AngelFish", 5); // Very friendly
+        Fish fish2 = new Fish("Guppy", 3); // Neutral
+
+        // Testing the nicestFish method with two fish
+        Fish nicest = Fish.nicestFish(fish1, fish2);
+        System.out.println("The nicest fish is a " + nicest.getTypeOfFish() + " with a friendliness level of " + nicest.getFriendliness());
+
+        // Testing the nicestFish method with multiple fish
+        Fish fish3 = new Fish("Goldfish", 4);
+        Fish fish4 = new Fish("Betta", 2);
+        Fish nicestMultiple = Fish.nicestFish(fish1, fish2, fish3, fish4);
+        System.out.println("The nicest fish is a " + nicestMultiple.getTypeOfFish() + " with a friendliness level of " + nicestMultiple.getFriendliness());
+    }
+}
+
