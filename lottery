@@ -1,0 +1,14 @@
+import java.util.Random;
+import java.util.Scanner;
+public class Lottery {
+	public static void main(String[] args) {
+		Scanner a =new Scanner(System.in);
+			System.out.print("enter a number btw 1 and 10  ");
+			int usernum = a.nextInt();
+			Random rnd = new Random();
+			int winnignum=rnd.nextInt(10)+1;
+			System.out.println("your number is "+usernum);
+			System.out.println("the winninng number is "+winnignum);
+		}
+	}
+
