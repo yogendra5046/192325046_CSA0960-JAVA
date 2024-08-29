@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class classaverage {
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        int[] testScores = new int[5];
+	        int total = 0;
+	        System.out.println("Enter the scores for 5 tests (each out of 100):");
+	        for (int i = 0; i < testScores.length; i++) {
+	            System.out.print("Score for test " + (i + 1) + ": ");
+	            testScores[i] = scanner.nextInt();
+	            total += testScores[i];
+	        }
+	        	        double average = total / (double) testScores.length;
+		        System.out.println("The average score is: " + average);
+		    }
+	}
