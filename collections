@@ -1,0 +1,43 @@
+public class Cell {
+    private String data;
+
+    public void setValue(String celldata) {
+        data = celldata;
+    }
+
+    public String getValue() {
+        return data;
+    }
+
+    @Override
+    public String toString() {
+        return data;
+    }
+}
+public class CellCollection {
+    Cell[] cells;
+    int ind = 0;
+    public CellCollection(int size) {
+        cells = new Cell[size];
+    }
+    public void add(Cell c) {
+        cells[ind] = c;
+        ind++;
+    }
+
+    public Cell get(int i) {
+        return cells[i];
+    }
+}
+public class CollectionDriver {
+   public static void main(String args[]) {
+        CellCollection cells = new CellCollection(5);
+        cells.add(new Cell());
+        cells.add(new Cell());
+ 
+        cells.get(0).setValue("first cell");
+        cells.get(1).setValue("second cell");
+        System.out.println(cells.get(0));
+        System.out.println(cells.get(1));
+    }
+}
