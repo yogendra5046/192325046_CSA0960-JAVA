@@ -1,0 +1,17 @@
+import java.util.Random;
+public class samerandom {
+			public static void main(String args[]) {
+			Random num=new Random(20L);
+			System.out.println("random number 1: "+num.nextInt(100));		
+			System.out.println("random number 2: "+num.nextInt(100));
+			num.setSeed(5L);
+			System.out.println("random number 3: "+num.nextInt(100));
+			System.out.println("random number 4: "+num.nextInt(100));
+			System.out.println("random number 5: "+num.nextInt(100));
+			num.setSeed(10L);
+			System.out.println("random number 6:"+num.nextInt(1000));
+			System.out.println("random number 7:"+num.nextInt(1000));
+			System.out.println("random number 8:"+num.nextInt(1000));
+		}
+	}
+
