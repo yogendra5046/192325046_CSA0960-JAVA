@@ -1,0 +1,61 @@
+abstract class Account {
+    private String ownerName;
+    private int accountNumber;
+    private double balance;
+
+    public Account(String ownerName, int accountNumber, double balance) {
+        this.ownerName = ownerName;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public void print() {
+        System.out.println("Account Holder: " + ownerName);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: $" + balance);
+        System.out.println();
+    }
+
+    public abstract void calculateInterest(); // Example of an abstract method
+}
+class CreditAccount extends Account {
+    private double creditLimit;
+
+    // Constructor calling super class constructor
+    public CreditAccount(String ownerName, int accountNumber, double balance) {
+        super(ownerName, accountNumber, balance);
+        this.creditLimit = 0; // Default credit limit
+    }
+
+    public CreditAccount(String ownerName, int accountNumber, double balance, double creditLimit) {
+        super(ownerName, accountNumber, balance);
+        this.creditLimit = creditLimit;
+    }
+
+    @Override
+    public void calculateInterest() {
+        // Implementation specific to CreditAccount
+        System.out.println("Interest calculated for Credit Account.");
+    }
+
+    @Override
+    public void print() {
+        super.print();
+        System.out.println("Credit Limit: $" + creditLimit);
+        System.out.println();
+    }
+}
+public class TestCreditAccount {
+    public static void main(String[] args) {
+         Account a1 = new CreditAccount("Sanjay Gupta", 11556, 300);
+        Account a2 = new CreditAccount("He Xai", 22338, 500);
+        Account a3 = new CreditAccount("Ilya Mustafana", 44559, 1000);
+        CreditAccount c1 = new CreditAccount("A.N Other", 88776, 500);
+        CreditAccount c2 = new CreditAccount("Another", 66778, 1000, 500);
+        a1.print();
+        a2.print();
+        a3.print();
+        c1.print();
+        c2.print();
+    }
+}
