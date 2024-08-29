@@ -1,0 +1,10 @@
+import java.util.Random;
+public class RandomNumRange {
+	public static void main(String args[]) {
+		Random num=new Random(20L);
+		//int randomnum=num.nextInt(31)+5;
+		System.out.print("random number"+num.nextInt(1000));		
+		System.out.print("random number"+num.nextInt(10000));		
+	}
+
+}
