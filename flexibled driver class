@@ -1,0 +1,17 @@
+public class CellDriver {
+private Object data;
+public void setValue(Object celldata) {
+data = celldata;
+}//end method setValue
+public Object getValue() {
+return data;
+}//end method get
+
+
+public static void main(String[] args) {
+CellDriver cell = new CellDriver();
+cell.setValue("one");
+int num = (int)cell.getValue();
+System.out.println(num);
+}//end method main
+}
