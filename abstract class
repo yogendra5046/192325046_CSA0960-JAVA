@@ -1,0 +1,51 @@
+package ab;
+
+	abstract class Account {
+	    private String ownerName;
+	    private int accountNumber;
+	    private double balance;
+	   
+	    public Account(String ownerName, int accountNumber, double balance) {
+	        this.ownerName = ownerName;
+	        this.accountNumber = accountNumber;
+	        this.balance = balance;
+	       
+	    }
+
+	    public void print() {
+	        System.out.println("Account Holder: " + ownerName);
+	        System.out.println("Account Number: " + accountNumber);
+	        System.out.println("Balance: $" + balance);
+	     
+	    }
+
+	    public abstract void calculateInterest(); // Example of an abstract method
+	}
+package ab;
+class SavingsAccount extends Account {
+    private double interestRate;
+
+    public SavingsAccount(String ownerName, int accountNumber, double balance, double interestRate) {
+        super(ownerName, accountNumber, balance);
+        this.interestRate = interestRate;
+    }
+
+    @Override
+    public void calculateInterest() {
+        // Implementation specific to SavingsAccount
+        System.out.println("Interest calculated for Savings Account.");
+    }
+}
+public class TestBank {
+
+	    public static void main(String[] args) {
+	              Account a1 = new SavingsAccount("Sanjay Gupta", 11556, 300,0.1 );
+	        Account a2 = new SavingsAccount("He Xai", 22338, 500, 0.04);
+	        Account a3 = new SavingsAccount("Ilya Mustafana", 44559, 1000, 0.03);
+	        a1.print();
+	        a2.print();
+	        a3.print();
+	        
+	    }
+	}
+
