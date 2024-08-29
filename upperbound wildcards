@@ -1,0 +1,40 @@
+import java.util.List;
+import java.util.ArrayList;
+
+public class GenericMethodClass {
+
+    // Method to print elements of any type of List
+    public void printList(List<?> list) {
+        for (Object elem : list) {
+            System.out.println(elem);
+        }
+        System.out.println();
+    }
+
+    // Method to sum elements in an ArrayList of any type that extends Number
+    public double sumOfList(ArrayList<? extends Number> arrayList) {
+        double s = 0.0;
+        for (Number n : arrayList) {
+            s += n.doubleValue();
+        }
+        return s;
+    }
+}
+import java.util.ArrayList;
+public class GenericMethodDriver {
+    public static void main(String[] args) {
+        GenericMethodClass gmc = new GenericMethodClass();
+        ArrayList<Double> array1 = new ArrayList<>();
+        array1.add(25.5);
+        array1.add(34.9);
+        array1.add(45.7);
+        gmc.printList(array1);
+        ArrayList<Integer> array2 = new ArrayList<>();
+        array2.add(10);
+        array2.add(20);
+        array2.add(30);
+        gmc.printList(array2);
+        System.out.println("Sum of array1 (Double list): " + gmc.sumOfList(array1));
+        System.out.println("Sum of array1 as an int: " + (int) gmc.sumOfList(array1));
+    }
+}
