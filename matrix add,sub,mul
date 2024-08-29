@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class operations  {
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        int rows = 3;
+	        int cols = 3;
+	        int[][] matrix1 = new int[rows][cols];
+	        int[][] matrix2 = new int[rows][cols];
+	        System.out.println("Enter elements of the first matrix:");
+	        for (int i = 0; i < rows; i++) {
+	            for (int j = 0; j < cols; j++) {
+	                matrix1[i][j] = scanner.nextInt();
+	            }
+	        }
+	        System.out.println("Enter elements of the second matrix:");
+	        for (int i = 0; i < rows; i++) {
+	            for (int j = 0; j < cols; j++) {
+	                matrix2[i][j] = scanner.nextInt();
+	            }
+	        }
+	        int[][] additionResult = addMatrices(matrix1, matrix2, rows, cols);
+	        System.out.println("Result of matrix addition:");
+	        printMatrix(additionResult, rows, cols);
+	        int[][] subtractionResult = subtractMatrices(matrix1, matrix2, rows, cols);
+	        System.out.println("Result of matrix subtraction:");
+	        printMatrix(subtractionResult, rows, cols);
+	        int[][] multiplicationResult = multiplyMatrices(matrix1, matrix2, rows, cols);
+	        System.out.println("Result of matrix multiplication:");
+	        printMatrix(multiplicationResult, rows, cols);
+	    }
+
+	    public static int[][] addMatrices(int[][] matrix1, int[][] matrix2, int rows, int cols) {
+	        int[][] result = new int[rows][cols];
+	        for (int i = 0; i < rows; i++) {
+	            for (int j = 0; j < cols; j++) {
+	                result[i][j] = matrix1[i][j] + matrix2[i][j];
+	            }
+	        }
+	        return result;
+	    }
+
+	    public static int[][] subtractMatrices(int[][] matrix1, int[][] matrix2, int rows, int cols) {
+	        int[][] result = new int[rows][cols];
+	        for (int i = 0; i < rows; i++) {
+	            for (int j = 0; j < cols; j++) {
+	                result[i][j] = matrix1[i][j] - matrix2[i][j];
+	            }
+	        }
+	        return result;
+	    }
+	    public static int[][] multiplyMatrices(int[][] matrix1, int[][] matrix2, int rows, int cols) {
+	        int[][] result = new int[rows][cols];
+	        for (int i = 0; i < rows; i++) {
+	            for (int j = 0; j < cols; j++) {
+	                result[i][j] = 0;
+	                for (int k = 0; k < cols; k++) {
+	                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+	                }
+	            }
+	        }
+	        return result;
+	    }
+	    public static void printMatrix(int[][] matrix, int rows, int cols) {
+	        for (int i = 0; i < rows; i++) {
+	            for (int j = 0; j < cols; j++) {
+	                System.out.print(matrix[i][j] + " ");
+	            }
+	            System.out.println();
+	        }
+	    }
+	}
