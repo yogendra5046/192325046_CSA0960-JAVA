@@ -1,0 +1,29 @@
+package assertionex3;
+import java.util.ArrayList;
+public class Stack {
+    private ArrayList<Object> elements = new ArrayList<>();
+    public int getElementCount() {
+        return elements.size();
+    }
+    public void push(Object element) {
+        elements.add(element);
+    }
+    public Object pop() {
+        int size = this.getElementCount();
+        if (size == 0) {
+            throw new RuntimeException("Attempt to pop from empty stack");
+        }
+        Object result = elements.remove(size - 1);
+
+        assert (this.getElementCount() == size - 1) : "Stack size did not decrease by 1 after pop";
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+           System.out.println("Popped element: " + stack.pop()); // should print "first"
+
+        // System.out.println("Popped element: " + stack.pop()); // should throw RuntimeException
+    }
+}
