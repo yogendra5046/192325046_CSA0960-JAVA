@@ -1,0 +1,24 @@
+
+public class customer {
+
+	private String name;
+	private int balance;
+	private double interestRate;
+
+	public static void main(String[] args) {
+		customer sa0001 = new customer();
+		sa0001.balance = 1000;
+		sa0001.name = "Damien";
+		sa0001.interestRate = 0.02;
+		customer sa0002 = new customer();
+		sa0002.balance = 2000;
+		sa0002.name = "Bill";
+System.out.println("name "+sa0001.name);
+System.out.println("balance "+sa0001.balance);
+System.out.println("intrestrate "+sa0001.interestRate);
+System.out.println("name "+sa0001.name);
+System.out.println("balance "+sa0001.balance);
+
+		}
+	}
+
