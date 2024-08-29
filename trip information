@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class trip {	
+    public static void main(String[] args) {
+    	        Scanner a = new Scanner(System.in);
+    	        System.out.print("Enter the number of people signed up for the field trip: ");
+    	        int totalPeople = a.nextInt();
+    	        final int BUS_CAPACITY = 45;
+    	        int busesNeeded = totalPeople / BUS_CAPACITY;
+    	        int peopleInVans = totalPeople % BUS_CAPACITY;
+    	        System.out.println("Number of buses needed: " + busesNeeded);
+    	        System.out.println("Number of people that will need to ride in vans: " + peopleInVans);
+    	    }
+    	}
