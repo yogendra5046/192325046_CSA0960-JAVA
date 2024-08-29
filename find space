@@ -1,0 +1,22 @@
+
+public class space {
+    public static void main(String[] args) {
+        String text = "Hello World";
+        int index = 0;
+
+        while (index < text.length()) {
+            char currentChar = text.charAt(index);
+
+            if (currentChar == ' ') {
+                System.out.println("Found a space at index " + index);
+                break;  
+            }
+
+            index++;
+        }
+
+        if (index == text.length()) {
+            System.out.println("No space character found in the string.");
+        }
+    }
+}
