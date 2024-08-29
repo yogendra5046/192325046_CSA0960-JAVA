@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class msg {
+	    public static void main(String[] args) {
+	        char[] cipher = new char[8];
+	        cipher[1] = 'D';
+	        cipher[2] = 'W';
+	        cipher[3] = 'E';
+	        cipher[4] = 'L';
+	        cipher[5] = 'H';
+	        cipher[6] = 'O';
+	        cipher[7] = 'R';
+	        Scanner scanner = new Scanner(System.in);
+	        StringBuilder decodedMessage = new StringBuilder();
+
+	        System.out.println("Enter 10 numbers (one at a time) to decode the message:");
+
+	        int count = 0;
+	        while (count < 10) {
+	            System.out.print("Enter number " + (count + 1) + ": ");
+	            int number = scanner.nextInt();
+	            if (number >= 1 && number <= 7) {
+	                decodedMessage.append(cipher[number]);
+	                count++;
+	            } else {
+	                System.out.println("Invalid number! Please enter a number between 1 and 7.");
+	            }
+	        }
+	        System.out.println("Decoded message: " + decodedMessage.toString());
+	    }
+	}
