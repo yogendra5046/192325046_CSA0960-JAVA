@@ -1,0 +1,54 @@
+package instanceoperstor;
+abstract class AbstractBankAccount {
+    protected String accountHolderName;
+    protected int accountNumber;
+    protected double balance;
+    public AbstractBankAccount(String accountHolderName, int accountNumber, double balance) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+    @Override
+    public String toString() {
+        return "Account Holder: " + accountHolderName + ", Account Number: " + accountNumber + ", Balance: " + balance;
+    }
+}public class Account extends AbstractBankAccount {
+    public Account(String accountHolderName, int accountNumber, double balance) {
+        super(accountHolderName, accountNumber, balance);
+    }
+}
+class CreditAccount extends AbstractBankAccount {
+    private double creditLimit;
+    public CreditAccount(String accountHolderName, int accountNumber, double balance, double creditLimit) {
+        super(accountHolderName, accountNumber, balance);
+        this.creditLimit = creditLimit;
+    }
+    public String toString() {
+        return super.toString() + ", Credit Limit: " + creditLimit;
+    }
+}ublic class TestCustomerAccounts {
+    public static void main(String[] args) {
+        AbstractBankAccount[] bankAccount = new AbstractBankAccount[5];
+        bankAccount[0] = new Account("Sanjay Gupta", 11556, 300);
+        bankAccount[1] = new Account("He Xai", 22338, 500);
+        bankAccount[2] = new Account("Ilya Mustafana", 44559, 1000);
+        bankAccount[3] = new CreditAccount("A.N Other", 88776, 500, 2000);
+        bankAccount[4] = new CreditAccount("Another", 66778, 1000, 500);
+        showAllCustomerAccounts(bankAccount);
+        showAllAccounts(bankAccount);
+    }
+    public static void showAllCustomerAccounts(AbstractBankAccount[] bankAccount) {
+        System.out.println("\nAll Customer Accounts******");
+        for (AbstractBankAccount act : bankAccount) {
+            System.out.println(act);
+        }
+    }
+    public static void showAllAccounts(AbstractBankAccount[] bankAccount) {
+        System.out.println("\nAll Account types******");
+        for (AbstractBankAccount act : bankAccount) {
+            if (act instanceof CreditAccount) {
+                System.out.println(act);
+            }
+        }
+    }
+}
