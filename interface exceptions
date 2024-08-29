@@ -1,0 +1,56 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class AccountInputForm {
+    private JTextField accountNumJTextField;
+    private JTextField balanceJTextField;
+    private JButton submitButton;
+    private JPanel mainPanel;
+    private int accountNum;
+    private int balance;
+    public AccountInputForm() {
+        accountNumJTextField = new JTextField(10);
+        balanceJTextField = new JTextField(10);
+        submitButton = new JButton("Submit");
+        mainPanel = new JPanel();
+        mainPanel.add(new JLabel("Account Number:"));
+        mainPanel.add(accountNumJTextField);
+        mainPanel.add(new JLabel("Balance:"));
+        mainPanel.add(balanceJTextField);
+        mainPanel.add(submitButton);
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    // Attempt to parse account number
+                    String accountNumText = accountNumJTextField.getText();
+                    if (accountNumText.isEmpty()) {
+                        throw new NumberFormatException("Account number is empty");
+                    }
+                    accountNum = Integer.parseInt(accountNumText);
+                    String balanceText = balanceJTextField.getText();
+                    if (balanceText.isEmpty()) {
+                        throw new NumberFormatException("Balance is empty");
+                    }
+                    balance = Integer.parseInt(balanceText);
+                    System.out.println("Account Number: " + accountNum);
+                    System.out.println("Balance: " + balance);
+
+                } catch (NumberFormatException ex) {
+                    System.out.println("Error: Invalid number format. Please enter valid integers.");
+                    System.out.println("Details: " + ex.getMessage());
+                } catch (Exception ex) {
+                    System.out.println("Unexpected error: " + ex.getMessage());
+                }
+            }
+        });
+    }
+    public static void main(String[] args) {
+        // Create and display the form
+        JFrame frame = new JFrame("Account Input Form");
+        frame.setContentPane(new AccountInputForm().mainPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
