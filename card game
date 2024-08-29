@@ -1,0 +1,202 @@
+
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Card class
+class Card {
+    private String suit, name;
+    private int points;
+
+    public Card(int suitValue, int rankValue) {
+        this.suit = getSuit(suitValue);
+        this.name = getName(rankValue);
+        this.points = getPoints(rankValue);
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public String toString() {
+        return "The " + name + " of " + suit;
+    }
+
+    private String getName(int rankValue) {
+        switch (rankValue) {
+            case 1: return "Ace";
+            case 2: return "Two";
+            case 3: return "Three";
+            case 4: return "Four";
+            case 5: return "Five";
+            case 6: return "Six";
+            case 7: return "Seven";
+            case 8: return "Eight";
+            case 9: return "Nine";
+            case 10: return "Ten";
+            case 11: return "Jack";
+            case 12: return "Queen";
+            case 13: return "King";
+            default: return "error";
+        }
+    }
+
+    private int getPoints(int rankValue) {
+        if (rankValue >= 10) return 10;
+        if (rankValue == 1) return 11; // Ace initially counts as 11
+        return rankValue;
+    }
+
+    private String getSuit(int suitValue) {
+        switch (suitValue) {
+            case 1: return "Diamonds";
+            case 2: return "Clubs";
+            case 3: return "Spades";
+            case 4: return "Hearts";
+            default: return "error";
+        }
+    }
+}
+
+// Deck class
+class Deck {
+    private List<Card> cardList = new ArrayList<>();
+    private int nextCardIndex = 0;
+
+    public Deck() {
+        int suits = 4;
+        int cardType = 13;
+        for (int i = 1; i <= suits; i++) {
+            for (int j = 1; j <= cardType; j++) {
+                cardList.add(new Card(i, j));
+            }
+        }
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cardList);
+        nextCardIndex = 0; // Reset the card index after shuffling
+    }
+
+    public void print() {
+        for (Card card : cardList) {
+            System.out.println(card);
+        }
+    }
+
+    public Card dealCard() {
+        if (nextCardIndex < cardList.size()) {
+            return cardList.get(nextCardIndex++);
+        }
+        return null;
+    }
+}
+
+// Hand class
+class Hand {
+    private List<Card> cards = new ArrayList<>();
+    private int aceCount = 0;
+
+    public void addCard(Card card) {
+        if (card != null) {
+            cards.add(card);
+            if (card.toString().contains("Ace")) {
+                aceCount++;
+            }
+        }
+    }
+
+    public int getValue() {
+        int value = 0;
+        for (Card card : cards) {
+            value += card.getPoints();
+        }
+        while (value > 21 && aceCount > 0) {
+            value -= 10;
+            aceCount--;
+        }
+        return value;
+    }
+
+    public void displayHand() {
+        for (Card card : cards) {
+            System.out.println(card);
+        }
+        System.out.println("Hand value: " + getValue());
+    }
+
+    public int getCardCount() {
+        return cards.size();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Deck deck = new Deck();
+        deck.shuffle();
+
+        Hand playerHand = new Hand();
+        Hand dealerHand = new Hand();
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Deal initial 2 cards to the player
+        playerHand.addCard(deck.dealCard());
+        playerHand.addCard(deck.dealCard());
+
+        // Deal initial 2 cards to the dealer
+        dealerHand.addCard(deck.dealCard());
+        dealerHand.addCard(deck.dealCard());
+
+        boolean playerTurn = true;
+
+        // Player's turn
+        while (playerTurn) {
+            playerHand.displayHand();
+            if (playerHand.getValue() > 21) {
+                System.out.println("You busted!");
+                return;
+            }
+            if (playerHand.getCardCount() == 5) {
+                break;
+            }
+            System.out.print("Would you like another card (y/n)? ");
+            String response = scanner.nextLine();
+            if (response.equalsIgnoreCase("y")) {
+                playerHand.addCard(deck.dealCard());
+            } else {
+                playerTurn = false;
+            }
+        }
+
+        // Dealer's turn
+        while (dealerHand.getValue() < 16) {
+            dealerHand.addCard(deck.dealCard());
+        }
+
+        // Display final hands
+        System.out.println("Your final hand:");
+        playerHand.displayHand();
+        System.out.println("Dealer's final hand:");
+        dealerHand.displayHand();
+
+        // Determine the winner
+        int playerValue = playerHand.getValue();
+        int dealerValue = dealerHand.getValue();
+
+        if (playerValue > 21) {
+            System.out.println("You lost!");
+        } else if (dealerValue > 21 || playerValue > dealerValue) {
+            System.out.println("You won!");
+        } else if (playerValue < dealerValue) {
+            System.out.println("Dealer won!");
+        } else {
+            System.out.println("It's a tie!");
+        }
+    }
+}
