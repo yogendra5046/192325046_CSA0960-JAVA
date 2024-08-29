@@ -1,0 +1,60 @@
+
+	import java.util.Scanner;
+	public class planetweight {
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.print("Enter your weight on Earth (in lbs): ");
+	        double earthWeight = scanner.nextDouble();
+	        System.out.println("Choose a planet from the menu below:");
+	        System.out.println("1. Mercury");
+	        System.out.println("2. Venus");
+	        System.out.println("3. Mars");
+	        System.out.println("4. Jupiter");
+	        System.out.println("5. Saturn");
+	        System.out.println("6. Uranus");
+	        System.out.println("7. Neptune");
+	        System.out.print("Enter the number corresponding to the planet: ");
+	        int choice = scanner.nextInt();
+	        double conversionFactor = 0;
+	        String planetName = "";
+	        switch (choice) {
+	            case 1:
+	                conversionFactor = 0.38;
+	                planetName = "Mercury";
+	                break;
+	            case 2:
+	                conversionFactor = 0.91;
+	                planetName = "Venus";
+	                break;
+	            case 3:
+	                conversionFactor = 0.38;
+	                planetName = "Mars";
+	                break;
+	            case 4:
+	                conversionFactor = 2.36;
+	                planetName = "Jupiter";
+	                break;
+	            case 5:
+	                conversionFactor = 0.92;
+	                planetName = "Saturn";
+	                break;
+	            case 6:
+	                conversionFactor = 0.89;
+	                planetName = "Uranus";
+	                break;
+	            case 7:
+	                conversionFactor = 1.13;
+	                planetName = "Neptune";
+	                break;
+	            default:
+	                System.out.println("Invalid choice. Please run the program again and choose a valid option.");
+	                scanner.close();
+	                return;
+	        }
+	        double planetWeight = earthWeight * conversionFactor;
+	        System.out.printf("Your weight on %s is %.2f lbs.%n", planetName, planetWeight);
+
+	        scanner.close();
+	    }
+	}
+
