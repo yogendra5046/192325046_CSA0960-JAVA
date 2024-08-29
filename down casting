@@ -1,0 +1,15 @@
+public class DowncastingExample {
+    public static void main(String[] args) {
+        // Define a double variable with a double literal
+        double complexNumber = 45.75;
+
+        // Define an int variable
+        int simpleNumber = 34;
+
+        // Explicitly cast double to int
+        simpleNumber = (int) complexNumber;
+
+        // Print the result
+        System.out.println("Simple number after downcasting: " + simpleNumber);
+    }
+}
