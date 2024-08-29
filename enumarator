@@ -1,0 +1,73 @@
+public class Account {
+    private String name;
+    private int number;
+    private int amount;
+    private int bonusValue;
+    private AccountType type; // New instance variable
+
+    // Constructor for Account
+    public Account(String name, int num, int amt, AccountType type) {
+        // If there is no superclass constructor to call, just initialize fields
+        this.name = name;
+        this.number = num;
+        this.amount = amt + calculateInitialBonusValue(amt);
+        this.bonusValue = calculateInitialBonusValue(amt);
+        this.type = type; // Assign parameter value to instance variable
+    }
+
+    // Example method to calculate initial bonus value (modify as needed)
+    private int calculateInitialBonusValue(int amt) {
+        // Logic for calculating bonus value
+        return amt / 10; // Example calculation
+    }
+
+    // Overriding the toString() method
+    @Override
+    public String toString() {
+        return "\nAccount Type : " + this.type +
+               "\nName: " + this.name +
+               "\nNumber: " + this.number +
+               "\nAmount: " + this.amount +
+               "\nBonus Value: " + this.bonusValue;
+     
+    }
+}public enum AccountType {
+    SAVINGS("SAV", 0.01),
+    CREDIT("CRD", 0.02), 
+    Deposit("DP",0.0);
+
+    private final String code;
+    private final double rate;
+
+    // Constructor to initialize the enum fields
+    AccountType(String code, double rate) {
+        this.code = code;
+        this.rate = rate;
+    }
+
+    // Getter method for code
+    public String getCode() {
+        return code;
+    }
+
+    // Getter method for rate
+    public double getRate() {
+        return rate;
+    }
+}
+public class TestBank {
+    public static void main(String[] args) {
+        // Using constructor with values and enum
+        Account a1 = new Account("Sanjay Gupta", 11556, 300, AccountType.SAVINGS);
+        Account a2 = new Account("He Xai", 22338, 500, AccountType.SAVINGS);
+        Account a3 = new Account("Ilya Mustafana", 44559, 1000, AccountType.SAVINGS);
+        for (AccountType act : AccountType.values())
+        	System.out.println("Value: " + act.name()
+        	+ ", position: " + act.ordinal());
+        AccountType account = AccountType.Deposit;
+        System.out.println("Type: " + account.name()
+        +"\nCode: " + account.getCode()
+        +"\nRate: " + account.getRate());
+
+    }
+}
