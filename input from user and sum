@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class adding {
+	public static void main(String args[]) {
+		Scanner a=new Scanner(System.in);
+	 /*int n1=a.nextInt();
+		int n2=a.nextInt();
+		int n3=a.nextInt();
+		int n4=a.nextInt();
+		int total=n1+n2+n3+n4;
+		System.out.print("total sum is "+total);*/
+			for(int i=5;i>=1;i--) {
+			System.out.print(" "+i);
+		}for(int i=1;i<=5;i++) {
+			System.out.println(" "+i);
+		
+	}
+			for(int i=64;i>=1;i=i/2) {
+			System.out.print(i);
+		}}
+}
