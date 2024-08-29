@@ -1,0 +1,38 @@
+public class Shape {
+    private int numSides;
+    private boolean regular;
+    public Shape() {
+        this.numSides = 0;
+        this.regular = false;
+    }
+    public Shape(int numSides, boolean regular) {
+        this.numSides = numSides;
+        this.regular = regular;
+    }
+    public int getNumSides() {
+        return numSides;
+    }
+    public void setNumSides(int numSides) {
+        this.numSides = numSides;
+    }
+    public boolean isRegular() {
+        return regular;
+    }
+    public void setRegular(boolean regular) {
+        this.regular = regular;
+    }
+    public void displayShapeDetails() {
+        System.out.println("Number of Sides: " + numSides);
+        System.out.println("Is Regular: " + (regular ? "Yes" : "No"));
+    }
+    public static void main(String[] args) {
+         Shape shape1 = new Shape();
+        shape1.displayShapeDetails();
+        Shape shape2 = new Shape(4, true);
+        shape2.displayShapeDetails();
+        shape1.setNumSides(3);
+        shape1.setRegular(false);
+        shape1.displayShapeDetails();
+    }
+}
+
