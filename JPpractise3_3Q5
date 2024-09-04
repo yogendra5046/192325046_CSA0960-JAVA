@@ -1,0 +1,19 @@
+import java.util.HashMap;
+import java.util.Map;
+public class CourseMap {
+    public static void main(String[] args) {
+        Map<String, String> courses = new HashMap<>();
+        courses.put("CIT", "Computing and Information Technology");
+        courses.put("CHI", "Childcare and Early Education");
+        courses.put("MVS", "Motor Vehicle Systems");
+        courses.put("BTH", "Beauty Therapy");
+        courses.put("GDE", "Graphic Design");
+        System.out.println("List of Courses:");
+        for (Map.Entry<String, String> entry : courses.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+        String courseCode = "CIT";
+        String courseName = courses.get(courseCode);
+        System.out.println("\nCourse for code " + courseCode + ": " + courseName);
+    }
+}
