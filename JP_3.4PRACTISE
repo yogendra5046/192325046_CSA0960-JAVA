@@ -1,0 +1,61 @@
+import java.util.Scanner;
+import java.util.Random;
+public class SortAndSearch {
+    public static void main(String[] args) {
+        int[] numbers = new int[50];
+        Random rand = new Random();
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = rand.nextInt(101);
+        }
+        System.out.println("Unordered list:");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number to search for: ");
+        int searchValue = scanner.nextInt();
+        int position = linearSearch(numbers, searchValue);
+        if (position != -1) {
+            System.out.println("Number found at position: " + position);
+        } else {
+            System.out.println("Number not found.");
+        }
+        bubbleSort(numbers);
+        System.out.println("Ordered list:");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        position = linearSearch(numbers, searchValue);
+        if (position != -1) {
+            System.out.println("Number found at position: " + position);
+        } else {
+            System.out.println("Number not found.");
+        }
+
+        scanner.close();
+    }
+    public static int linearSearch(int[] array, int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void bubbleSort(int[] array) {
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                     int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+    }
+}
