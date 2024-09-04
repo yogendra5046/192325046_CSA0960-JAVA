@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+public class GenericStackException extends RuntimeException {
+    public GenericStackException(String message) {
+        super(message);
+    }
+}
+public class GenericStack<T> {
+    private ArrayList<T> items;
+    private int top;
+    public GenericStack() {
+        items = new ArrayList<>();
+        top = 0;}
+        public void push(T item) {
+            items.add(item);
+            top++;
+        }
+        public T pop() {
+            if (top == 0) {
+                throw new GenericStackException("Stack is empty. Cannot pop.");
+            }
+            T item = items.remove(--top);
+            return item;
+    }
+}
